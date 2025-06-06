@@ -1,16 +1,60 @@
-# AWS EKS Container Service Deployment
+# Terraform EKS Deployment Project
 
-This Terraform project deploys a containerized service to an AWS EKS cluster with all necessary infrastructure.
+[![Open in GitHub](https://img.shields.io/badge/GitHub-View%20Repository-blue?logo=github)](https://github.com/neverscores/terraform-eks-deployment.git)
+[![Terraform Version](https://img.shields.io/badge/terraform-≥_1.0-623CE4?logo=terraform)](https://developer.hashicorp.com/terraform)
 
-## Prerequisites
-- AWS account with appropriate permissions
-- Terraform installed (v1.0+ recommended)
-- kubectl installed
-- AWS CLI configured
+## 📝 Assignment Summary
+Deploy a containerized service to AWS EKS with all required infrastructure (VPC, networking, security) using Terraform modules.  
+**Expected completion time:** 1-2 hours.
 
-## Deployment Steps
+![Screenshot of Deployed Service](https://via.placeholder.com/800x400?text=Screenshot+of+Deployed+Service+Here)  
+*Replace with your actual screenshot*
 
-1. Clone this repository
-   ```bash
-   git clone https://github.com/your-repo/eks-container-service.git
-   cd eks-container-service
+---
+
+## 🛠️ Deployment Guide
+
+### Prerequisites
+- AWS account with IAM permissions for EKS, VPC, and IAM
+- [Terraform](https://developer.hashicorp.com/terraform/downloads) (v1.0+)
+- [AWS CLI](https://aws.amazon.com/cli/) configured
+- [kubectl](https://kubernetes.io/docs/tasks/tools/)
+
+### Step 1: Clone Repository
+git clone https://github.com/neverscores/terraform-eks-deployment.git
+cd terraform-eks-deployment
+
+
+### Step 2: Initialize terraform
+terraform init
+
+
+### Step 3: Deploy Infrastrucutre
+terraform apply -auto-approve
+
+This creates:
+
+VPC with public/private subnets
+EKS cluster with managed node group
+NGINX service with LoadBalancer
+
+### Step 4: Access the cluster
+aws eks --region $(terraform output -raw region) update-kubeconfig \
+  --name $(terraform output -raw cluster_name)
+
+### Step 5: Verify Deployment
+kubectl get svc hiive-service -o wide
+
+Access your service at:
+http://$(kubectl get svc hiive-service -o jsonpath='{.status.loadBalancer.ingress[0].hostname}')
+
+Key Design Decisions
+1. Modular Structure: The project is organized into reusable modules (VPC, EKS, Container Service) following Terraform best practices. This separation allows for better maintainability and reusability of components.
+
+2. High Availability: The VPC module creates resources across 3 availability zones with both public and private subnets, ensuring high availability for the EKS cluster and worker nodes.
+
+3. Security: IAM roles with least-privilege policies are created for both the EKS cluster and worker nodes. The private subnets provide an additional layer of security for worker nodes.
+
+4. Scalability: The node group is configured with auto-scaling parameters (desired, min, max size) to handle varying workloads efficiently.
+
+5. Separation of Concerns: The container service module handles only Kubernetes resources, keeping infrastructure and application layers separate.
