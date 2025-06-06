@@ -1,14 +1,17 @@
 # Terraform EKS Deployment Project
 # Repository Contents
-.
-├── modules/               # Terraform modules <br>
-│   ├── eks-cluster/       # EKS config         <br>  
-│   ├── vpc/               # Networking    <br>
-│   └── container-service/ # App deployment<br>
-├── main.tf                # Root config<br>
-├── variables.tf           # Inputs<br>
-├── outputs.tf             # Cluster endpoints<br>
-└── README.md             # This file
+```
+terraform-eks-deployment/
+├── modules/               # Reusable components
+│   ├── eks-cluster/       # EKS resources
+│   ├── vpc/               # Networking
+│   └── container-service/ # App deployment
+├── main.tf                # Root configuration
+├── variables.tf           # Input variables
+├── outputs.tf             # Cluster endpoints
+└── README.md              # This file
+```
+
 
 ##  Assignment Summary
 Deploy a containerized service to AWS EKS with all required infrastructure (VPC, networking, security) using Terraform modules.  
