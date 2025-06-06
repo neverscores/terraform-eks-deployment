@@ -1,14 +1,12 @@
 # Terraform EKS Deployment Project
 
-[![Open in GitHub](https://img.shields.io/badge/GitHub-View%20Repository-blue?logo=github)](https://github.com/neverscores/terraform-eks-deployment.git)
-[![Terraform Version](https://img.shields.io/badge/terraform-≥_1.0-623CE4?logo=terraform)](https://developer.hashicorp.com/terraform)
+
 
 ## 📝 Assignment Summary
 Deploy a containerized service to AWS EKS with all required infrastructure (VPC, networking, security) using Terraform modules.  
 **Expected completion time:** 1-2 hours.
 
-![Screenshot of Deployed Service](https://via.placeholder.com/800x400?text=Screenshot+of+Deployed+Service+Here)  
-*Replace with your actual screenshot*
+![web_image](https://github.com/user-attachments/assets/fe39a1da-9ad0-47b6-9c18-65a951c89cab)  
 
 ---
 
