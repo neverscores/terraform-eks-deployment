@@ -1,13 +1,13 @@
 # Terraform EKS Deployment Project
 # Repository Contents
 .
-├── modules/               # Terraform modules
-│   ├── eks-cluster/       # EKS config
-│   ├── vpc/               # Networking
-│   └── container-service/ # App deployment
-├── main.tf                # Root config
-├── variables.tf           # Inputs
-├── outputs.tf             # Cluster endpoints
+├── modules/               # Terraform modules <br>
+│   ├── eks-cluster/       # EKS config         <br>  
+│   ├── vpc/               # Networking    <br>
+│   └── container-service/ # App deployment<br>
+├── main.tf                # Root config<br>
+├── variables.tf           # Inputs<br>
+├── outputs.tf             # Cluster endpoints<br>
 └── README.md             # This file
 
 ##  Assignment Summary
@@ -25,7 +25,7 @@ Deploy a containerized service to AWS EKS with all required infrastructure (VPC,
 - [kubectl](https://kubernetes.io/docs/tasks/tools/)
 
 ### Step 1: Clone Repository
-git clone https://github.com/neverscores/terraform-eks-deployment.git
+git clone https://github.com/neverscores/terraform-eks-deployment.git <br>
 cd terraform-eks-deployment
 
 
@@ -50,7 +50,8 @@ aws eks --region $(terraform output -raw region) update-kubeconfig \
 kubectl get svc hiive-service -o wide
 
 Access your service at:
-http://$(kubectl get svc hiive-service -o jsonpath='{.status.loadBalancer.ingress[0].hostname}')
+http://$(kubectl get svc hiive-service -o <br>
+jsonpath='{.status.loadBalancer.ingress[0].hostname}')
 
 ![web_image](https://github.com/user-attachments/assets/fe39a1da-9ad0-47b6-9c18-65a951c89cab)  
 
