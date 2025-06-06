@@ -30,7 +30,7 @@ resource "aws_s3_bucket" "bucket" {
 
 resource "aws_dynamodb_table" "terraform-lock" {
   name         = "hiive-terraform_state"
-  billing_mode = "PAY_PER_REQUEST"  # More cost-effective than provisioned capacity
+  billing_mode = "PAY_PER_REQUEST"  
   hash_key     = "LockID"
 
   attribute {
