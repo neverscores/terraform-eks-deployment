@@ -38,8 +38,8 @@ terraform apply -auto-approve
 
 This creates:
 
-VPC with public/private subnets
-EKS cluster with managed node group
+VPC with public/private subnets \n
+EKS cluster with managed node group \n
 NGINX service with LoadBalancer
 
 ### Step 4: Access the cluster
