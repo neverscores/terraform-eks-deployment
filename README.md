@@ -1,16 +1,22 @@
 # Terraform EKS Deployment Project
+# Repository Contents
+.
+├── modules/               # Terraform modules
+│   ├── eks-cluster/       # EKS config
+│   ├── vpc/               # Networking
+│   └── container-service/ # App deployment
+├── main.tf                # Root config
+├── variables.tf           # Inputs
+├── outputs.tf             # Cluster endpoints
+└── README.md             # This file
 
-
-
-## 📝 Assignment Summary
+##  Assignment Summary
 Deploy a containerized service to AWS EKS with all required infrastructure (VPC, networking, security) using Terraform modules.  
-**Expected completion time:** 1-2 hours.
 
-![web_image](https://github.com/user-attachments/assets/fe39a1da-9ad0-47b6-9c18-65a951c89cab)  
 
 ---
 
-## 🛠️ Deployment Guide
+##  Deployment Guide
 
 ### Prerequisites
 - AWS account with IAM permissions for EKS, VPC, and IAM
@@ -45,6 +51,9 @@ kubectl get svc hiive-service -o wide
 
 Access your service at:
 http://$(kubectl get svc hiive-service -o jsonpath='{.status.loadBalancer.ingress[0].hostname}')
+
+![web_image](https://github.com/user-attachments/assets/fe39a1da-9ad0-47b6-9c18-65a951c89cab)  
+
 
 Key Design Decisions
 1. Modular Structure: The project is organized into reusable modules (VPC, EKS, Container Service) following Terraform best practices. This separation allows for better maintainability and reusability of components.
