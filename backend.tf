@@ -11,9 +11,9 @@ resource "aws_s3_bucket" "bucket" {
   bucket = "hiive-state-backend"
   
   # Required for Terraform state buckets
-  lifecycle {
-    prevent_destroy = true
-  }
+  #lifecycle {
+  # prevent_destroy = true
+  # }
 
   versioning {
     enabled = true
